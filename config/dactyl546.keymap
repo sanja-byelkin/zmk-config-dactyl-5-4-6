@@ -9,9 +9,10 @@
 #include <dt-bindings/zmk/pointing.h>
 
 #define BASE 0
-#define NAV  1
-#define SYM  2
-#define BTH  3
+#define SYM  1
+#define NAV  2
+#define MOS  3
+#define BTH  4
 
 
 &mmv {
@@ -69,42 +70,11 @@ label= "BASE";
       &kp Z          &kp X          &kp C          &kp V          &kp B             &kp N          &kp M          &kp COMMA      &kp DOT        &kp FSLH
                      &kp NON_US_BSLH &kp MINUS                                                                    &kp EQUAL      &kp APOS
 
-                     &kp DEL        &lt NAV TAB    &kp SPACE      &kp HOME          &kp END        &kp RET        &lt SYM ESC    &kp BSPC
+                     &lt MOS DEL    &lt NAV TAB    &kp SPACE      &kp HOME          &kp END        &kp RET        &lt SYM ESC    &kp BSPC
                                                    &kp ESC        &kp GRAVE         &kp RALT       &mo SYM
                         >;
                 };
 
-
-
-                nav_layer {
-label= "NAV";
-//   +--------------+--------------+--------------+--------------+--------------+  +--------------+--------------+--------------+--------------+--------------+
-//   |   BR UP      |   SCRL UP    |  MOUSE UP    |   SCRL UP    |   MUTE       |  |    HOME      |   PG DN      |     PG UP    |    END       |     INS      |
-//   +--------------+--------------+--------------+--------------+--------------+  +--------------+--------------+--------------+--------------+--------------+
-//   |   BR DN      |  MOUSE LEFT  |  MOUSE DN    |  MOUSE RIGHT |   VOL UP     |  |    LEFT      |    DOWN      |      UP      |   RIGHT      |     DEL      |
-//   +--------------+--------------+--------------+--------------+--------------+  +--------------+--------------+--------------+--------------+--------------+
-//   |   LGUI       |   LALT       |   LCTRL      |    LSHIFT    |   VOL DN     |  |              |  LSHIFT      |   RCTRL      |   RALT       |    RGUI      |
-//   +--------------+--------------+--------------+--------------+--------------+  +--------------+--------------+--------------+--------------+--------------+
-//                  |              |              |                                                              |    MB 2      |   MB 3       |
-//                  +--------------+--------------+                                                              +--------------+--------------+
-//
-//                  +--------------+--------------+--------------+--------------+  +--------------+--------------+--------------+--------------+
-//                  |              |              |              |              |  |              |              |     MB 1     |              |
-//                  +--------------+--------------+--------------+--------------+  +--------------+--------------+--------------+--------------+
-//                                                |              |              |  |              |              |
-//                                                +--------------+--------------+  +--------------+--------------+
- bindings = <
-//   |              |              |              |              |              |  |              |              |              |              |              |
-      &kp C_BRI_UP   &msc SCRL_UP   &mmv MOVE_UP   &msc SCRL_DOWN &kp C_MUTE        &kp HOME       &kp PG_DN      &kp PG_UP      &kp END        &kp INS
-      &kp C_BRI_DN   &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &kp C_VOL_UP     &kp LEFT       &kp DOWN       &kp UP         &kp RIGHT      &kp DEL
-      &kp LGUI       &kp LALT       &kp LCTRL      &kp LSHFT      &kp C_VOL_DN      &trans         &kp LSHFT      &kp LCTRL      &kp LALT       &kp LGUI
-      &trans         &trans         &trans         &trans         &trans            &kp C_VOL_UP   &kp FSLH       &kp BSLH       &kp QMARK      &kp PIPE
-                     &trans         &trans                                                                        &mkp MB2       &mkp MB3
-
-                     &trans         &trans         &trans         &trans            &trans         &trans         &mkp MB1       &mo BTH
-                                                   &trans         &trans            &trans         &trans
-                        >;
-                };
 
 
                 sim_layer {
@@ -133,6 +103,66 @@ label= "SYM";
 
                      &mo BTH        &trans         &trans         &trans           &trans         &trans         &trans         &trans
                                                    &trans         &trans           &trans         &trans
+                        >;
+                };
+
+
+                nav_layer {
+label= "NAV";
+//   +--------------+--------------+--------------+--------------+--------------+  +--------------+--------------+--------------+--------------+--------------+
+//   |   BR UP      |   SCRL UP    |  MOUSE UP    |   SCRL UP    |   MUTE       |  |    HOME      |   PG DN      |     PG UP    |    END       |     INS      |
+//   +--------------+--------------+--------------+--------------+--------------+  +--------------+--------------+--------------+--------------+--------------+
+//   |   LGUI       |   LALT       |   LCTRL      |    LSHIFT    |   VOL UP     |  |    LEFT      |    DOWN      |      UP      |   RIGHT      |     DEL      |
+//   +--------------+--------------+--------------+--------------+--------------+  +--------------+--------------+--------------+--------------+--------------+
+//   |   BR DN      |              |              |              |   VOL DN     |  |              |              |              |              |              |
+//   +--------------+--------------+--------------+--------------+--------------+  +--------------+--------------+--------------+--------------+--------------+
+//                  |              |              |                                                              |              |              |
+//                  +--------------+--------------+                                                              +--------------+--------------+
+//
+//                  +--------------+--------------+--------------+--------------+  +--------------+--------------+--------------+--------------+
+//                  |              |              |              |              |  |              |              |              |              |
+//                  +--------------+--------------+--------------+--------------+  +--------------+--------------+--------------+--------------+
+//                                                |              |              |  |              |              |
+//                                                +--------------+--------------+  +--------------+--------------+
+ bindings = <
+//   |              |              |              |              |              |  |              |              |              |              |              |
+      &kp C_BRI_UP   &msc SCRL_UP   &trans         &msc SCRL_DOWN &kp C_MUTE        &kp HOME       &kp PG_DN      &kp PG_UP      &kp END        &kp INS
+      &kp LGUI       &kp LALT       &kp LCTRL      &kp LSHFT      &kp C_VOL_DN      &kp LEFT       &kp DOWN       &kp UP         &kp RIGHT      &kp DEL
+      &kp C_BRI_DN   &trans         &trans         &trans         &kp C_VOL_DN      &trans         &trans         &trans         &trans         &trans
+                     &trans         &trans                                                                        &trans         &trans
+
+                     &trans         &trans         &trans         &trans            &trans         &trans         &trans         &mo BTH
+                                                   &trans         &trans            &trans         &trans
+                        >;
+                };
+
+
+                mos_layer {
+label= "MOS";
+//   +--------------+--------------+--------------+--------------+--------------+  +--------------+--------------+--------------+--------------+--------------+
+//   |   BR UP      |   SCRL UP    |  MOUSE UP    |   SCRL UP    |   MUTE       |  |    HOME      |   PG DN      |     PG UP    |    END       |     INS      |
+//   +--------------+--------------+--------------+--------------+--------------+  +--------------+--------------+--------------+--------------+--------------+
+//   |   BR DN      |  MOUSE LEFT  |  MOUSE DN    |  MOUSE RIGHT |   VOL UP     |  |    LEFT      |    DOWN      |      UP      |   RIGHT      |     DEL      |
+//   +--------------+--------------+--------------+--------------+--------------+  +--------------+--------------+--------------+--------------+--------------+
+//   |   LGUI       |   LALT       |   LCTRL      |    LSHIFT    |   VOL DN     |  |              |  LSHIFT      |   RCTRL      |   RALT       |    RGUI      |
+//   +--------------+--------------+--------------+--------------+--------------+  +--------------+--------------+--------------+--------------+--------------+
+//                  |              |              |                                                              |    MB 2      |   MB 3       |
+//                  +--------------+--------------+                                                              +--------------+--------------+
+//
+//                  +--------------+--------------+--------------+--------------+  +--------------+--------------+--------------+--------------+
+//                  |              |              |              |              |  |              |              |     MB 1     |              |
+//                  +--------------+--------------+--------------+--------------+  +--------------+--------------+--------------+--------------+
+//                                                |              |              |  |              |              |
+//                                                +--------------+--------------+  +--------------+--------------+
+ bindings = <
+//   |              |              |              |              |              |  |              |              |              |              |              |
+      &trans         &trans         &trans         &trans         &trans            &trans         &msc SCRL_DOWN &msc SCRL_UP   &trans         &trans
+      &kp LGUI       &kp LALT       &kp LCTRL      &kp LSHFT      &trans            &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP   &mmv MOVE_RIGHT &trans
+      &trans         &trans         &trans         &trans         &trans            &trans         &mkp MB1       &mkp MB3       &mkp MB2       &trans
+                     &trans         &trans                                                                        &trans         &trans
+
+                     &trans         &trans         &trans         &trans            &trans         &trans         &trans       &trans
+                                                   &trans         &trans            &trans         &trans
                         >;
                 };
 
