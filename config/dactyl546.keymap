@@ -60,7 +60,7 @@ label= "BASE";
 //                  +--------------+--------------+--------------+--------------+  +--------------+--------------+--------------+--------------+
 //                  |     DEL      |      TAB     |      SPC     |     HOME     |  |     END      |     RET      |     ESC      |    BSPC      |
 //                  +--------------+--------------+--------------+--------------+  +--------------+--------------+--------------+--------------+
-//                                                |      NAV     |      `       |  |    RALT      |     SYM      |
+//                                                |      SPC     |      `       |  |    RALT      |     SYM      |
 //                                                +--------------+--------------+  +--------------+--------------+
 
  bindings = <
@@ -71,7 +71,7 @@ label= "BASE";
                      &kp NON_US_BSLH &kp MINUS                                                                    &kp EQUAL      &kp APOS
 
                      &lt MOS DEL    &lt NAV TAB    &kp SPACE      &kp HOME          &kp END        &kp RET        &lt SYM ESC    &kp BSPC
-                                                   &kp ESC        &kp GRAVE         &kp RALT       &mo SYM
+                                                   &kp SPACE      &kp GRAVE         &kp RALT       &mo SYM
                         >;
                 };
 
