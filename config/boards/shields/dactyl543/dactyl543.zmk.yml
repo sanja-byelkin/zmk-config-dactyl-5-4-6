@@ -1,11 +1,11 @@
 file_format: "1"
-id: dactyl546
-name: TOTEM546
+id: dactyl543
+name: DACTYL543
 type: shield
 url: https://github.com/abstracthat/dactyl-manuform
 requires: [nice_nano]
 features:
   - keys
 siblings:
-  - dactyl546_left
-  - dactyl546_right
+  - dactyl543_left
+  - dactyl543_right

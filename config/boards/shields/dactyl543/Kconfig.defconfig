@@ -1,17 +1,17 @@
 # Copyright (c) 2022 The ZMK Contributors
 # SPDX-License-Identifier: MIT
 
-if SHIELD_DACTYL546_LEFT
+if SHIELD_DACTYL543_LEFT
 
 config ZMK_KEYBOARD_NAME
-    default "DACTYL546"
+    default "DACTYL543"
 
 config ZMK_SPLIT_ROLE_CENTRAL
     default y
 
 endif
 
-if SHIELD_DACTYL546_LEFT || SHIELD_DACTYL546_RIGHT
+if SHIELD_DACTYL543_LEFT || SHIELD_DACTYL543_RIGHT
 
 config ZMK_SPLIT
     default y
